@@ -32,7 +32,7 @@ module VestalVersions
           :order => "#{options[:class_name].constantize.table_name}.number ASC"
         )
 
-        class_inheritable_accessor :vestal_versions_options
+        class_attribute :vestal_versions_options
         self.vestal_versions_options = options.dup
 
         options.merge!(
