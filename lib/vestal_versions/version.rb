@@ -3,6 +3,8 @@ module VestalVersions
   class Version < ActiveRecord::Base
     include Comparable
 
+    attr_accessible :modifications, :number, :user
+
     # Associate polymorphically with the parent record.
     belongs_to :versioned, :polymorphic => true
 
