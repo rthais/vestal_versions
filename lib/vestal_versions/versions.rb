@@ -13,10 +13,7 @@ module VestalVersions
       return [] if from_number.nil? || to_number.nil?
 
       condition = (from_number == to_number) ? to_number : Range.new(*[from_number, to_number].sort)
-      all(
-        :conditions => {:number => condition},
-        :order => "#{table_name}.number #{(from_number > to_number) ? 'DESC' : 'ASC'}"
-      )
+      all(:conditions => {:number => condition}).order("#{table_name}.number #{(from_number > to_number) ? 'DESC' : 'ASC'}")
     end
 
     # Returns all version records created before the version associated with the given value.
